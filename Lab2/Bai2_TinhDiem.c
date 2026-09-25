@@ -11,10 +11,9 @@ int main(){
 
     printf("Nhap diem mon hoa: ");
     scanf("%f", &hoa);
-
+     
     diemTrungBinh = (float)(toan * 3 + ly * 2 + hoa * 1) / 6;
-
+     
     printf("Diem trung binh: %2.f\n", diemTrungBinh);
-
     return 0;
 }
