@@ -1,4 +1,3 @@
-- Video bai 1 
-- Video bai 2
-- Video bai 3
-- Video bai 4
+- Video bai 1 - 2 https://youtu.be/IzfTaJnS2i8
+- Video bai 3 https://youtu.be/8w-xXMuDd0E
+- Video bai 4 https://youtu.be/HQEx1TBKsIk
