@@ -3,15 +3,12 @@
 #include <math.h>
 #include <string.h>
 #include <time.h>
-// Ham ho tro xoa bo nho dem ban phim
+
 void clearBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-// ==========================================
-// CHUC NANG 1: KIEM TRA SO NGUYEN[cite: 6]
-// ==========================================
 int laSoNguyenTo(int n) {
     if (n < 2) return 0;
     for (int i = 2; i <= sqrt(n); i++) {
@@ -56,9 +53,6 @@ void chucNang1() {
     }
 }
 
-// ==========================================
-// CHUC NANG 2: UOC SO CHUNG & BOI SO CHUNG[cite: 6]
-// ==========================================
 int timUCLN(int a, int b) {
     a = abs(a);
     b = abs(b);
@@ -87,9 +81,6 @@ void chucNang2() {
     printf("-> Boi so chung nho nhat (BCNN) cua %d va %d la: %d\n", x, y, timBCNN(x, y));
 }
 
-// ==========================================
-// CHUC NANG 3: TINH TIEN QUAN KARAOKE[cite: 5]
-// ==========================================
 void chucNang3() {
     printf("\n--- CHUC NANG 3: TINH TIEN QUAN KARAOKE ---\n");
     int gioBatDau, gioKetThuc;
@@ -109,10 +100,9 @@ void chucNang3() {
     if (soGio <= 3) {
         tongTien = soGio * 150000;
     } else {
-        tongTien = 3 * 150000 + (soGio - 3) * 150000 * 0.7; // Giam 30% tu gio thu 4[cite: 5]
+        tongTien = 3 * 150000 + (soGio - 3) * 150000 * 0.7;
     }
 
-    // Giam them 10% neu bat dau trong khoang 14h - 17h[cite: 5]
     if (gioBatDau >= 14 && gioBatDau <= 17) {
         tongTien *= 0.9;
     }
@@ -120,9 +110,6 @@ void chucNang3() {
     printf("-> Tong tien phai thanh toan: %.0f VND\n", tongTien);
 }
 
-// ==========================================
-// CHUC NANG 4: TINH TIEN DIEN[cite: 4]
-// ==========================================
 void chucNang4() {
     printf("\n--- CHUC NANG 4: TINH TIEN DIEN ---\n");
     double kWh;
@@ -136,28 +123,25 @@ void chucNang4() {
 
     double tongTien = 0;
     if (kWh <= 50) {
-        tongTien = kWh * 1678; // Bac 1[cite: 4]
+        tongTien = kWh * 1678;
     } else if (kWh <= 100) {
-        tongTien = 50 * 1678 + (kWh - 50) * 1734; // Bac 2[cite: 4]
+        tongTien = 50 * 1678 + (kWh - 50) * 1734;
     } else if (kWh <= 200) {
-        tongTien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014; // Bac 3[cite: 4]
+        tongTien = 50 * 1678 + 50 * 1734 + (kWh - 100) * 2014;
     } else if (kWh <= 300) {
-        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536; // Bac 4[cite: 4]
+        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kWh - 200) * 2536;
     } else if (kWh <= 400) {
-        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834; // Bac 5[cite: 4]
+        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
     } else {
-        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927; // Bac 6[cite: 4]
+        tongTien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927;
     }
 
     printf("-> So tien dien phai tra: %.0f dong\n", tongTien);
 }
 
-// ==========================================
-// CHUC NANG 5: DOI TIEN[cite: 4]
-// ==========================================
 void chucNang5() {
     printf("\n--- CHUC NANG 5: CHUC NANG DOI TIEN ---\n");
-    int menhGia[] = {500, 200, 100, 50, 20, 10, 5, 2, 1}; // Cac menh gia[cite: 4]
+    int menhGia[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
     int n = sizeof(menhGia) / sizeof(menhGia[0]);
     int tien;
 
@@ -179,9 +163,6 @@ void chucNang5() {
     }
 }
 
-// ==========================================
-// CHUC NANG 6: TINH LAI SUAT VAY NGAN HANG TRA GOP[cite: 3]
-// ==========================================
 void chucNang6() {
     printf("\n--- CHUC NANG 6: TINH LAI SUAT VAY NGAN HANG TRA GOP ---\n");
     double soTienVay;
@@ -193,14 +174,14 @@ void chucNang6() {
         return;
     }
 
-    double gocPhaiTra = soTienVay / 12; // Tra trong 12 thang[cite: 3]
+    double gocPhaiTra = soTienVay / 12;
     double soTienConLai = soTienVay;
 
     printf("\n| %-7s | %-15s | %-15s | %-15s | %-15s |\n", "Ky han", "Lai phai tra", "Goc phai tra", "So tien phai tra", "So tien con lai");
     printf("----------------------------------------------------------------------------------------\n");
 
     for (int kyHan = 1; kyHan <= 12; kyHan++) {
-        double laiPhaiTra = soTienConLai * 0.05; // Lai suat 5%/thang[cite: 3]
+        double laiPhaiTra = soTienConLai * 0.05;
         double soTienPhaiTra = laiPhaiTra + gocPhaiTra;
         soTienConLai -= gocPhaiTra;
         if (soTienConLai < 0) soTienConLai = 0;
@@ -210,13 +191,10 @@ void chucNang6() {
     }
 }
 
-// ==========================================
-// CHUC NANG 7: VAY TIEN MUA XE[cite: 2]
-// ==========================================
 void chucNang7() {
     printf("\n--- CHUC NANG 7: XAY DUNG CHUONG TRINH VAY TIEN MUA XE ---\n");
     double phanTramVay;
-    printf("Nhap %% vay toi da (vi du nhap 80 cho 80%%): "); //[cite: 2]
+    printf("Nhap %% vay toi da (vi du nhap 80 cho 80%%): ");
     scanf("%lf", &phanTramVay);
 
     if (phanTramVay <= 0 || phanTramVay > 100) {
@@ -224,12 +202,12 @@ void chucNang7() {
         return;
     }
 
-    double giaTriXe = 500000000.0 / (phanTramVay / 100.0); // Co dinh khoan vay 500 trieu[cite: 2]
+    double giaTriXe = 500000000.0 / (phanTramVay / 100.0);
     double tienTraLanDau = giaTriXe - 500000000.0;
     
-    int thoiHanVayNam = 24; // 24 nam[cite: 2]
-    int tongSoThang = thoiHanVayNam * 12; // 288 thang
-    double laiSuatNam = 0.072; // 7.2%/nam[cite: 2]
+    int thoiHanVayNam = 24;
+    int tongSoThang = thoiHanVayNam * 12;
+    double laiSuatNam = 0.072;
     double laiSuatThang = laiSuatNam / 12.0;
 
     double gocPhaiTraHangThang = 500000000.0 / tongSoThang;
@@ -241,9 +219,6 @@ void chucNang7() {
     printf("-> Tien goc co dinh hang thang: %.0f VND (Lai giam dan theo du no thuc te)\n", gocPhaiTraHangThang);
 }
 
-// ==========================================
-// CHUC NANG 8: SAP XEP THONG TIN SINH VIEN[cite: 2]
-// ==========================================
 typedef struct {
     char hoTen[50];
     float diem;
@@ -251,11 +226,11 @@ typedef struct {
 } SinhVien;
 
 void xepLoaiHocLuc(SinhVien *sv) {
-    if (sv->diem >= 9.0) strcpy(sv->hocLuc, "Xuat sac"); //[cite: 2]
-    else if (sv->diem >= 8.0) strcpy(sv->hocLuc, "Gioi"); //[cite: 2]
-    else if (sv->diem >= 6.5) strcpy(sv->hocLuc, "Kha"); //[cite: 2]
-    else if (sv->diem >= 5.0) strcpy(sv->hocLuc, "Trung binh"); //[cite: 2]
-    else strcpy(sv->hocLuc, "Yeu"); //[cite: 2]
+    if (sv->diem >= 9.0) strcpy(sv->hocLuc, "Xuat sac");
+    else if (sv->diem >= 8.0) strcpy(sv->hocLuc, "Gioi");
+    else if (sv->diem >= 6.5) strcpy(sv->hocLuc, "Kha");
+    else if (sv->diem >= 5.0) strcpy(sv->hocLuc, "Trung binh");
+    else strcpy(sv->hocLuc, "Yeu");
 }
 
 void chucNang8() {
@@ -275,7 +250,7 @@ void chucNang8() {
         printf("\nNhap thong tin sinh vien thu %d:\n", i + 1);
         printf(" - Ho va ten: ");
         fgets(ds[i].hoTen, sizeof(ds[i].hoTen), stdin);
-        ds[i].hoTen[strcspn(ds[i].hoTen, "\n")] = 0; // Xoa ky tu xong dong
+        ds[i].hoTen[strcspn(ds[i].hoTen, "\n")] = 0;
         
         printf(" - Diem: ");
         scanf("%f", &ds[i].diem);
@@ -284,7 +259,6 @@ void chucNang8() {
         xepLoaiHocLuc(&ds[i]);
     }
 
-    // Sap xep giam dan theo diem[cite: 2]
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (ds[i].diem < ds[j].diem) {
@@ -303,9 +277,6 @@ void chucNang8() {
     }
 }
 
-// ==========================================
-// CHUC NANG 9: GAME FPOLY-LOTT (2/15)[cite: 1]
-// ==========================================
 void chucNang9() {
     printf("\n--- CHUC NANG 9: GAME FPOLY-LOTT (2/15) ---\n");
     int so1, so2;
@@ -320,8 +291,8 @@ void chucNang9() {
     }
 
     srand(time(NULL));
-    int kq1 = rand() % 15 + 1; //[cite: 1]
-    int kq2 = rand() % 15 + 1; //[cite: 1]
+    int kq1 = rand() % 15 + 1;
+    int kq2 = rand() % 15 + 1;
 
     printf("-> Ket qua he thong quay so: %02d - %02d\n", kq1, kq2);
 
@@ -330,17 +301,14 @@ void chucNang9() {
     if (so2 == kq1 || so2 == kq2) trung++;
 
     if (trung == 2) {
-        printf("-> Chuc mung ban da trung giai nhat!\n"); //[cite: 1]
+        printf("-> Chuc mung ban da trung giai nhat!\n");
     } else if (trung == 1) {
-        printf("-> Chuc mung ban da trung giai nhi!\n"); //[cite: 1]
+        printf("-> Chuc mung ban da trung giai nhi!\n");
     } else {
-        printf("-> Chuc ban may man lan sau!\n"); //[cite: 1]
+        printf("-> Chuc ban may man lan sau!\n");
     }
 }
 
-// ==========================================
-// CHUC NANG 10: TINH TOAN PHAN SO[cite: 1]
-// ==========================================
 typedef struct {
     int tu;
     int mau;
@@ -379,11 +347,11 @@ void chucNang10() {
         return;
     }
 
-    // Tong
+    
     PhanSo tong = {ps1.tu * ps2.mau + ps2.tu * ps1.mau, ps1.mau * ps2.mau};
-    // Hieu
+    
     PhanSo hieu = {ps1.tu * ps2.mau - ps2.tu * ps1.mau, ps1.mau * ps2.mau};
-    // Tich
+    
     PhanSo tich = {ps1.tu * ps2.tu, ps1.mau * ps2.mau};
     
     printf("\nKet qua tinh toan:\n"); //[cite: 1]
@@ -391,7 +359,7 @@ void chucNang10() {
     printf(" - Hieu: "); inPhanSo(hieu); printf("\n");
     printf(" - Tich: "); inPhanSo(tich); printf("\n");
 
-    // Thuong
+    
     if (ps2.tu == 0) {
         printf(" - Thuong: Khong the chia cho 0\n");
     } else {
@@ -399,9 +367,7 @@ void chucNang10() {
         printf(" - Thuong: "); inPhanSo(thuong); printf("\n");
     }
 }
-// ==========================================
-// MAN HINH MENU CHINH[cite: 6]
-// ==========================================
+
 int main() {
     int luaChon;
     do {
@@ -429,16 +395,36 @@ int main() {
         }
 
         switch (luaChon) {
-            case 1: chucNang1(); break;
-            case 2: chucNang2(); break;
-            case 3: chucNang3(); break;
-            case 4: chucNang4(); break;
-            case 5: chucNang5(); break;
-            case 6: chucNang6(); break;
-            case 7: chucNang7(); break;
-            case 8: chucNang8(); break;
-            case 9: chucNang9(); break;
-            case 10: chucNang10(); break;
+            case 1: 
+               chucNang1(); 
+               break;
+            case 2: 
+               chucNang2(); 
+               break;
+            case 3: 
+               chucNang3(); 
+               break;
+            case 4: 
+               chucNang4(); 
+               break;
+            case 5: 
+               chucNang5(); 
+               break;
+            case 6: 
+               chucNang6(); 
+               break;
+            case 7: 
+               chucNang7(); 
+               break;
+            case 8: 
+               chucNang8(); 
+               break;
+            case 9: 
+               chucNang9(); 
+               break;
+            case 10: 
+               chucNang10(); 
+               break;
             case 0:
                 printf("\nCam on ban da su dung chuong trinh! Tam biet.\n");
                 break;
